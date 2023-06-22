@@ -1,0 +1,80 @@
+/* Gaya umum */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Gaya header */
+header {
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+/* Gaya form */
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+button[type="submit"], button[type="reset"] {
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover, button[type="reset"]:hover {
+    background-color: #45a049;
+}
+
+/* Gaya hasil konversi */
+#resultContainer {
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+#resultContainer label {
+    font-weight: bold;
+}
+
+#result {
+    margin-top: 5px;
+}
+
+/* Gaya rumus */
+#formula {
+    background-color: #f5f5f5;
+    padding: 20px;
+}
