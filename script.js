@@ -17,14 +17,11 @@ temperatureForm.addEventListener("submit", function(event) {
         // Konversi dari Celsius ke Fahrenheit
         convertedTemperature = (temperature * 9/5) + 32;
         result.textContent = `${temperature} \u00B0C = ${convertedTemperature} \u00B0F`;
-        result.insertAdjacentHTML("afterend", `<br>(${temperature} \u00B0C * 9/5) + 32 = ${convertedTemperature} \u00B0F`); 
-    } 
-    else if (fahrenheitRadio.checked) {
+    } else if (fahrenheitRadio.checked) {
         // Konversi dari Fahrenheit ke Celsius
         convertedTemperature = (temperature - 32) * 5/9;
         result.textContent = `${temperature} \u00B0F = ${convertedTemperature} \u00B0C`;
-        result.insertAdjacentHTML("afterend", `<br>(${temperature} \u00B0F - 32) * 5/9 = ${convertedTemperature} \u00B0C`);
-  }
+    }
 
     resultContainer.classList.remove("hidden"); // Tampilkan kontainer hasil konversi
 });
