@@ -1,40 +1,51 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Kalkulator Suhu</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-  <h1>Kalkulator Suhu</h1>
-  <div>
-    <label for="input">Masukkan suhu:</label>
-    <input type="text" id="input" placeholder="Masukkan suhu">
-  </div>
-  <div>
-    <label for="from">Dari:</label>
-    <select id="from">
-      <option value="celcius">Celcius</option>
-      <option value="fahrenheit">Fahrenheit</option>
-      <option value="kelvin">Kelvin</option>
-    </select>
-  </div>
-  <div>
-    <label for="to">Ke:</label>
-    <select id="to">
-      <option value="celcius">Celcius</option>
-      <option value="fahrenheit">Fahrenheit</option>
-      <option value="kelvin">Kelvin</option>
-    </select>
-  </div>
-  <div>
-    <button onclick="convert()">Konversi</button>
-    <button onclick="reset()">Reset</button>
-  </div>
-  <div>
-    <label for="result">Hasil:</label>
-    <input type="text" id="result" readonly>
-  </div>
+<html lang="en">
 
-  <script src="script.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Suhu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Kalkulator Suhu</h1>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2>Konversi Suhu</h2>
+            <form id="temperatureForm">
+                <label for="temperatureInput">Masukkan Suhu:</label>
+                <input type="number" id="temperatureInput" placeholder="Masukkan nilai suhu" required>
+                <br>
+                <input type="radio" id="celsiusRadio" name="unit" value="celsius" checked>
+                <label for="celsiusRadio">Celsius ke Fahrenheit</label>
+                <br>
+                <input type="radio" id="fahrenheitRadio" name="unit" value="fahrenheit">
+                <label for="fahrenheitRadio">Fahrenheit ke Celsius</label>
+                <br>
+                <button type="submit">Konversi</button>
+                <button type="reset">Reset</button>
+            </form>
+            <div id="resultContainer" class="hidden">
+                <br>
+                <label for="unit">Hasil konversi menjadi:</label>
+                <p id="result"></p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Rumus Cara Menghitung</h2>
+            <div id="formula">
+                <p>Celcius ke Fahrenheit: (C * 9/5) + 32</p>
+                <p>Fahrenheit ke Celsius: (F - 32) * 5/9</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
 </body>
+
 </html>
