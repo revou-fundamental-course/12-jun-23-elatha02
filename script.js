@@ -1,41 +1,35 @@
-function convert() {
-  var input = document.getElementById("input").value;
-  var from = document.getElementById("from").value;
-  var to = document.getElementById("to").value;
-  var result;
+// Ambil referensi elemen-elemen yang dibutuhkan
+const temperatureForm = document.getElementById("temperatureForm");
+const temperatureInput = document.getElementById("temperatureInput");
+const celsiusRadio = document.getElementById("celsiusRadio");
+const fahrenheitRadio = document.getElementById("fahrenheitRadio");
+const resultContainer = document.getElementById("resultContainer");
+const result = document.getElementById("result");
 
-  if (from === "celcius") {
-    if (to === "fahrenheit") {
-      result = (input * 9/5) + 32;
-    } else if (to === "kelvin") {
-      result = parseFloat(input) + 273.15;
-    } else {
-      result = input;
-    }
-  } else if (from === "fahrenheit") {
-    if (to === "celcius") {
-      result = (input - 32) * 5/9;
-    } else if (to === "kelvin") {
-      result = (input - 32) * 5/9 + 273.15;
-    } else {
-      result = input;
-    }
-  } else if (from === "kelvin") {
-    if (to === "celcius") {
-      result = input - 273.15;
-    } else if (to === "fahrenheit") {
-      result = (input - 273.15) * 9/5 + 32;
-    } else {
-      result = input;
-    }
+// Event listener untuk saat formulir dikirimkan
+temperatureForm.addEventListener("submit", function(event) {
+    event.preventDefault(); // Mencegah aksi default dari formulir
+
+    const temperature = parseFloat(temperatureInput.value); // Ambil suhu dari input
+    let convertedTemperature; // Variabel untuk menyimpan suhu yang dikonversi
+
+    if (celsiusRadio.checked) {
+        // Konversi dari Celsius ke Fahrenheit
+        convertedTemperature = (temperature * 9/5) + 32;
+        result.textContent = `${temperature} \u00B0C = ${convertedTemperature} \u00B0F`;
+        result.insertAdjacentHTML("afterend", `<br>(${temperature} \u00B0C * 9/5) + 32 = ${convertedTemperature} \u00B0F`); 
+    } 
+    else if (fahrenheitRadio.checked) {
+        // Konversi dari Fahrenheit ke Celsius
+        convertedTemperature = (temperature - 32) * 5/9;
+        result.textContent = `${temperature} \u00B0F = ${convertedTemperature} \u00B0C`;
+        result.insertAdjacentHTML("afterend", `<br>(${temperature} \u00B0F - 32) * 5/9 = ${convertedTemperature} \u00B0C`);
   }
 
-  document.getElementById("result").value = result.toFixed(2);
-}
+    resultContainer.classList.remove("hidden"); // Tampilkan kontainer hasil konversi
+});
 
-function reset() {
-  document.getElementById("input").value = "";
-  document.getElementById("from").value = "celcius";
-  document.getElementById("to").value = "celcius";
-  document.getElementById("result").value = "";
-}
+// Event listener untuk saat tombol reset diklik
+temperatureForm.addEventListener("reset", function() {
+    resultContainer.classList.add("hidden"); // Sembunyikan kontainer hasil konversi
+});
